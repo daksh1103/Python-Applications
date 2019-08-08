@@ -22,8 +22,8 @@ def on_message(client, userdata, msg):
     
 
 def restart(a1):
-    oc = owncloud.Client('https://files.aparinnosys.com')
-    oc.login('test.python','@parinnosys')
+    oc = owncloud.Client('')
+    oc.login('test.python','')
     oc.get_file('/IEC/'+a1, str(sys.argv[0]))
     os.execv(sys.executable, ['python3'] + sys.argv)
 def func1():
@@ -38,13 +38,13 @@ if __name__ == '__main__':
     client1= paho.Client() #create client object
     client1.on_connect = on_connect
     client1.on_publish =on_publish #assign function to callback
-    client1.username_pw_set("mqtt_innformer",password="7WDk9Xi7ICbVzDIAo71F")
-    client1.connect("kvbmqtt.innoculate.in",port=1883)
+    client1.username_pw_set("",password="")
+    client1.connect("host",port=1883)
     client1.loop_start()
     client = paho.Client()
     client.on_connect = on_connect1
     client.on_message = on_message
-    client.username_pw_set("mqtt_innformer",password="7WDk9Xi7ICbVzDIAo71F")
-    client.connect("kvbmqtt.innoculate.in", 1883, 60) #subscriber and Mosquitto sit in same server
+    client.username_pw_set("host",password="")
+    client.connect("host", 1883, 60) #subscriber and Mosquitto sit in same server
     Thread(target = func1).start()
     client.loop_forever()
