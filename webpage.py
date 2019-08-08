@@ -3,10 +3,10 @@ from flask import Flask,render_template,request,redirect,url_for
 app = Flask(__name__)
 mysql = MySQL()
 # MySQL configurations
-app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'MY$ql@123'
-app.config['MYSQL_DATABASE_DB'] = 'sensordata'
-app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+app.config['MYSQL_DATABASE_USER'] = ''
+app.config['MYSQL_DATABASE_PASSWORD'] = ''
+app.config['MYSQL_DATABASE_DB'] = ''
+app.config['MYSQL_DATABASE_HOST'] = ''
 mysql.init_app(app)
 conn = mysql.connect()
 cursor = conn.cursor()
